@@ -1,0 +1,507 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"T",
+				"Troops"
+			],
+			[
+				"Att",
+				"Attacking"
+			],
+			[
+				"cs",
+				"\"cSpell.dictionaryDefinitions\""
+			],
+			[
+				"c",
+				"\"cSpell.useGitignore\""
+			],
+			[
+				"a",
+				"\"cSpell.enabled\""
+			],
+			[
+				"al",
+				"\"allowImportingTsExtensions\""
+			],
+			[
+				"d",
+				"domainName"
+			],
+			[
+				"fr",
+				"fromString"
+			],
+			[
+				"i",
+				"InitFile"
+			],
+			[
+				"In",
+				"InitCommand"
+			],
+			[
+				"m",
+				"mode"
+			],
+			[
+				"do",
+				"DOMAIN1"
+			],
+			[
+				"DOMA",
+				"DOMAIN2"
+			],
+			[
+				"D",
+				"DOMAIN1"
+			],
+			[
+				"alow",
+				"\"allowImportingTsExtensions\""
+			],
+			[
+				"s",
+				"\"settings\""
+			],
+			[
+				"exc",
+				"\"folder_exclude_patterns\""
+			],
+			[
+				"ap",
+				"appPrefix"
+			],
+			[
+				"insta",
+				"instanceSize"
+			],
+			[
+				"Insta",
+				"InstanceSize"
+			],
+			[
+				"app",
+				"appPrefix"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"pack",
+				"Package Control: List Packages"
+			],
+			[
+				"Package:",
+				"Package Control: List Packages"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Project Speci",
+				"Project Specific Syntax: Copy syntax setting to clipboard"
+			],
+			[
+				"sort",
+				"Sort Lines"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"perlt",
+				"PerlTidy: Tidy"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"LSP",
+				"LSP: Restart Server"
+			],
+			[
+				"pakcage in",
+				"Package Control: Install Package"
+			],
+			[
+				"spell",
+				"LSP: Enable Language Server Globally"
+			],
+			[
+				"Prefer",
+				"Preferences: NeoVintageous Settings"
+			],
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				":w",
+				":w - Save"
+			],
+			[
+				"Prefere",
+				"Preferences: LSP-eslint Settings"
+			],
+			[
+				"Package control",
+				"Package Control: Enable Package"
+			],
+			[
+				"reind",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"ena",
+				"Package Control: Enable Package"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"install Package Control",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 454.0,
+		"history":
+		[
+			"view.settings().get('added_words')",
+			"view.settings()",
+			"view_settings()",
+			"view.settings.get('added_words')"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Volumes/Development/luke/src/Ao3-Recommender-Extension"
+	],
+	"file_history":
+	[
+		"/Users/luke/src/Schierer.Org_Infra/dkim-record.json",
+		"/Users/luke/src/Schierer.Org_Infra/migrate.sh",
+		"/Users/luke/src/Schierer.Org_Infra/bin/prereqs.sh",
+		"/Users/luke/src/Schierer.Org_Infra/schierer.org.dkim-record.json",
+		"/Users/luke/src/Schierer.Org_Infra/workmail_passwords.txt",
+		"/Volumes/Development/luke/src/PAGI-WebServer/Game-EvonyTKR/lib/Game/EvonyTKR/Controller/Monsters.pm",
+		"/Volumes/Development/luke/src/PAGI-WebServer/Game-EvonyTKR/share/conf/development.yml",
+		"/Volumes/Development/luke/src/PAGI-WebServer/Game-EvonyTKR/lib/Game/EvonyTKR/Controller/ControllerBase.pm",
+		"/Volumes/Development/luke/src/PAGI-WebServer/Game-EvonyTKR/share/conf/test.yml",
+		"/Volumes/Development/luke/src/PAGI-WebServer/Game-EvonyTKR/share/conf/production.yml",
+		"/Volumes/Development/luke/src/PAGI-WebServer/Game-EvonyTKR/lib/Game/EvonyTKR.pm",
+		"/Volumes/Development/luke/src/PAGI-WebServer/Game-EvonyTKR/package.json",
+		"/Volumes/Development/luke/src/PAGI-WebServer/Game-EvonyTKR/share/collections/data/skill books/Knight King.yaml",
+		"/Volumes/Development/luke/src/PAGI-WebServer/Game-EvonyTKR/share/collections/data/ascending attributes/Francis I of France.yaml",
+		"/Volumes/Development/luke/src/PAGI-WebServer/Game-EvonyTKR/share/collections/data/covenants/Francis I of France.yaml",
+		"/Volumes/Development/luke/src/PAGI-WebServer/Game-EvonyTKR/share/collections/data/specialties/Battle of Marignano.yaml",
+		"/Volumes/Development/luke/src/PAGI-WebServer/Game-EvonyTKR/share/collections/data/generals/Francis I of France.yaml",
+		"/Volumes/Development/luke/src/PAGI-WebServer/Game-EvonyTKR/EvonyTKR.sublime-project",
+		"/Volumes/Development/luke/src/PAGI-WebServer/Game-EvonyTKR/share/training_data/ground_pairs",
+		"/Volumes/Development/luke/src/PAGI-WebServer/Game-EvonyTKR/share/training_data/conflicting_pairs",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/conf/production.yml",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/HPFan.sublime-project",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/.cspell/project-words.txt",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/magic/dark/Horcruxes.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/magic/dark/index.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/people/Granger/Hermione Jean.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/lib/App/Schierer/HPFan/Controller/Person.pm",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/magic/transfiguration.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/magic/Animagus.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/lib/App/Schierer/HPFan/View/FamilyTree.pm",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/reactions/book 1/index.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/reactions/book 1/Chapter 04.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/reactions/book 1/Chapter 03.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/people/Snape/Severus/swm.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Fan Fiction/Harry_Potter_-_Nephilim/Appendices/Life Expectancy.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Fan Fiction/Harry_Potter_-_Nephilim/backstory/The_Veela.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/people/Potter/wealth.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/conf/test.yml",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/people/Snape/Severus.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/people/Riddle/Tom Marvolo.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/people/Malfoy/Lucius Abraxas.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/people/Malfoy/Draco Lucius.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/people/Lupin/Remus John.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/people/Figg/Arabella Doreen.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/people/Dursley/index.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Fan Fiction/Hope/.cspell/ignored-words.txt",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/people/index.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/people/Black/Sirius III.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/people/Brown/Lavender.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/conf/development.yml",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/people/Evans/Lily J.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/people/Greengrass/index.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/people/Dumbledore/Albus Percival Wulfric Brian.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/people/Dumbledore/Albus Percival Wulfric Brian/Doubting_Harry.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/people/Dumbledore/Albus Percival Wulfric Brian/Inaction.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/people/Dumbledore/Albus Percival Wulfric Brian/Manipulator.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/people/Dumbledore/Albus Percival Wulfric Brian/treatment_of_Harry.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Fan Fiction/Harry_Potter_-_Nephilim/Appendices/Relative Power Levels.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Fan Fiction/Harry_Potter_-_Nephilim/Appendices/Relative Power Levels.yaml",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/people/McGonagall/Minerva.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/reactions/fan fiction/Addams Family Crossovers.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/reactions/fan fiction/after the battle.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/reactions/fan fiction/anthropomorphism.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/reactions/fan fiction/Lupin the brainiac.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/reactions/fan fiction/over-bias.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/reactions/fan fiction/the egoist society.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/Gringotts.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/child_abuse_in_fiction.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/reactions/fan fiction/The Potter Family Tree.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/people/Weasley/Ronald Bilius.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/people/Weasley/Percy Ignatius.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/people/Weasley/index.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/people/Weasley/Ginevra Molly.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/people/Weasley/George.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/people/Weasley/Charlie.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/people/Prewett/Molly.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/people/Potter/Harry James.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/cspell.json",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Fan Fiction/Hope/02 - Paris.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Fan Fiction/Hope/03 - Normandy.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Fan Fiction/Hope/05 - Barcelona.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Fan Fiction/index.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Fan Fiction/Harry_Potter_-_Nephilim/Chapters/Chapter05.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Fan Fiction/Harry_Potter_-_Nephilim/Chapters/Chapter02.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Fan Fiction/Harry_Potter_-_Nephilim/backstory/The_Dwarfs.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Fan Fiction/Harry_Potter_-_Nephilim/Appendices/Veela Pathology.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Fan Fiction/Harry_Potter_-_Nephilim/Appendices/Inheritance.md",
+		"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/share/pages/Fan Fiction/Hope/01 - Beauxbatons.md",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/PAGI-WebServer/PAGI-WebServer.sublime-project",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/untitled.json",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/PAGI-WebServer.sublime-project",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/App-Schierer-HPFan/share/pages/Harrypedia/reactions/fan fiction/The Potter Family Tree.md",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/App-Schierer-HPFan/infrastructure/lib/aws-schierer-hpfan-stack.ts",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/Lukes-Ebooks/share/conf/development.yml",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/Lukes-Ebooks/justfile",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/Lukes-Ebooks/tsconfig.build.json",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/Game-EvonyTKR/share/infrastructure/lib/main-stack.ts",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/Game-EvonyTKR/Build",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/Game-EvonyTKR/tsconfig.build.json",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/Game-EvonyTKR/tsconfig.json",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/Game-EvonyTKR/lib/partials/level_settings_form.ts",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/PAGI-WebServer/lib/Infrastructure/userdata.ts",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/Game-EvonyTKR/infrastructure/bin/infrastructure.ts",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/PAGI-WebServer/lib/Infrastructure/prefixBin/bootstrap.sh",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/Game-EvonyTKR/deploy/nginx-site.conf",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/Game-EvonyTKR/share/tsconfig.json",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/Game-EvonyTKR/scripts/dev.sh",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/Game-EvonyTKR/eslint.config.mts",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/Game-EvonyTKR/share/conf/production.yml",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/Game-EvonyTKR/justfile",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/Game-EvonyTKR/MANIFEST.SKIP",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/build_output.txt",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/Game-EvonyTKR/infrastructure/tsconfig.json",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/Game-EvonyTKR/pnpm-workspace.yaml",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/Game-EvonyTKR/infrastructure/package.json",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/Game-EvonyTKR/Build.PL",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/Game-EvonyTKR/lib/Module/Build/Custom.pm",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/Game-EvonyTKR/scripts/build-for-deploy.sh",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/Game-EvonyTKR/package.json",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/Game-EvonyTKR/eslint.config.ts",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/Game-EvonyTKR/lib/Module",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/Game-EvonyTKR/bin/server.pl",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/Lukes-Ebooks/infrastructure/bin/infrastructure.ts",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/PAGI-WebServer/lib/Infrastructure/ApplicationStackProps.ts",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/PAGI-WebServer/lib/Infrastructure/ApplicationStack.ts",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/PAGI-WebServer/lib/Infrastructure/ec2-instance.ts",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/PAGI-WebServer/Build.PL",
+		"/Volumes/workplace/src/schierer/PAGI-WebServer/PAGI-WebServer/lib/Infrastructure/etc/template.service"
+	],
+	"find":
+	{
+		"height": 38.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 40.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.LSP Log Panel":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"output.diagnostics":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"output.find_results":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"pinned_build_system": "",
+	"project": "Ao3RecommenderExtension.sublime-project",
+	"replace":
+	{
+		"height": 68.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 501.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"/Volumes/Development/luke/src/PAGI-WebServer/App-Schierer-HPFan/HPFan.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"lsp_show_inlay_hints": false
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 235.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

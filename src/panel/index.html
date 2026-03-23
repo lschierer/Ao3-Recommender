@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AO3 Recommender</title>
+  <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+  <div id="app">
+
+    <!-- Config form -->
+    <section id="form-section">
+      <h1>AO3 Recommender</h1>
+
+      <form id="config-form">
+        <div class="field">
+          <label for="urls">Work or Series URL(s) <span class="hint">(one per line)</span></label>
+          <textarea id="urls" rows="3"
+            placeholder="https://archiveofourown.org/works/12345&#10;https://archiveofourown.org/series/67890"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="wait-level">Depth</label>
+          <select id="wait-level">
+            <option value="short">Short — quick sample</option>
+            <option value="medium">Medium</option>
+            <option value="long" selected>Long — recommended</option>
+            <option value="very long">Very Long — thorough</option>
+          </select>
+        </div>
+
+        <details id="filter-details">
+          <summary>Filters &amp; tag options</summary>
+
+          <div class="field">
+            <label for="blacklist">Exclude tags <span class="hint">(comma-separated)</span></label>
+            <input type="text" id="blacklist" placeholder="death fic, noncon, underage">
+          </div>
+
+          <div class="field">
+            <label for="enforce">Require tags <span class="hint">(comma-separated)</span></label>
+            <input type="text" id="enforce" placeholder="hermione granger">
+          </div>
+
+          <div class="field checkbox">
+            <input type="checkbox" id="soft-enforcement" checked>
+            <label for="soft-enforcement">Soft-enforce (boost matching works rather than
+              exclude non-matching)</label>
+          </div>
+        </details>
+
+        <details id="advanced-details">
+          <summary>Advanced limits</summary>
+          <p class="hint">Leave blank to use the Depth preset.</p>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="bkmrkr-limit">Bookmarker limit</label>
+              <input type="number" id="bkmrkr-limit" min="0" placeholder="preset">
+            </div>
+            <div class="field">
+              <label for="kdsr-limit">Kudoser limit</label>
+              <input type="number" id="kdsr-limit" min="0" placeholder="preset">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="bkmrk-pages">Pages per user</label>
+              <input type="number" id="bkmrk-pages" min="1" placeholder="preset">
+            </div>
+            <div class="field">
+              <label for="tag-page-limit">Tag page limit</label>
+              <input type="number" id="tag-page-limit" min="0" placeholder="preset">
+            </div>
+          </div>
+        </details>
+
+        <button type="submit" id="start-btn">Find Recommendations</button>
+      </form>
+    </section>
+
+    <!-- Progress view -->
+    <section id="progress-section" hidden>
+      <h1>AO3 Recommender</h1>
+      <div id="progress-log"></div>
+      <div id="live-count"></div>
+      <div id="throttle-box" hidden>
+        <p>AO3 is rate-limiting. Retrying in <strong id="throttle-countdown"></strong>s&hellip;</p>
+        <button id="resume-btn" type="button">Resume Now</button>
+      </div>
+      <button id="cancel-btn" type="button">Cancel</button>
+      <div id="live-results-section" hidden>
+        <h2>Results so far</h2>
+        <div id="live-results-list"></div>
+      </div>
+    </section>
+
+    <!-- Results view -->
+    <section id="results-section" hidden>
+      <div id="results-header">
+        <span id="result-count"></span>
+        <button id="new-search-btn" type="button">New Search</button>
+      </div>
+
+      <div id="errors-box" hidden>
+        <strong>Warnings:</strong>
+        <ul id="errors-list"></ul>
+      </div>
+
+      <div id="results-list"></div>
+    </section>
+
+  </div>
+  <script type="module" src="panel.js"></script>
+</body>
+</html>

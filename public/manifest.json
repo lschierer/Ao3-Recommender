@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "AO3 Recommender",
+  "version": "0.1.0",
+  "description": "Recommends AO3 works based on bookmarkers, kudosers, and tags",
+
+  "permissions": ["sidePanel", "storage", "activeTab"],
+  "host_permissions": ["*://archiveofourown.org/*"],
+
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "*://archiveofourown.org/works/*",
+        "*://archiveofourown.org/series/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "side_panel": {
+    "default_path": "panel/index.html"
+  },
+
+  "action": {
+    "default_title": "AO3 Recommender"
+  }
+}
