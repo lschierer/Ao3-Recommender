@@ -113,7 +113,7 @@ function handleMessage(msg: BackgroundToPanel): void {
     else liveResults.push(msg.blurb);
     if (msg.isNew) liveResultCount++;
     liveCount.textContent = `${liveResultCount} result(s) found so far...`;
-    updateLiveCard(msg.blurb, msg.isNew);
+    updateLiveCard(msg.blurb);
   } else if (msg.type === "throttled") {
     showThrottled(msg.retryAfterSeconds);
   } else if (msg.type === "complete") {
@@ -133,28 +133,22 @@ function addProgressLine(msg: string, isError: boolean): void {
 }
 
 // --- Live results rendering ---
-function updateLiveCard(blurb: ScoredBlurb, isNew: boolean): void {
+function updateLiveCard(blurb: ScoredBlurb): void {
   liveResultsSection.hidden = false;
+
+  // Remove existing card before re-inserting so the position can change
+  liveCardMap.get(blurb.id)?.remove();
+
   const card = buildCard(blurb);
   card.dataset.workId = blurb.id;
-
-  if (!isNew) {
-    // Replace existing card in place
-    const existing = liveCardMap.get(blurb.id);
-    if (existing) {
-      existing.replaceWith(card);
-      liveCardMap.set(blurb.id, card);
-      return;
-    }
-  }
-
-  // Insert new card in score order (highest first)
   liveCardMap.set(blurb.id, card);
-  const children = Array.from(liveResultsList.children) as HTMLElement[];
-  const insertBefore = children.find((c) => {
-    const existing = liveResults.find((r) => r.id === c.dataset.workId);
-    return existing !== undefined && existing.score < blurb.score;
-  });
+
+  // Insert in score order (highest first)
+  const insertBefore = (Array.from(liveResultsList.children) as HTMLElement[])
+    .find((c) => {
+      const r = liveResults.find((r) => r.id === c.dataset.workId);
+      return r !== undefined && r.score < blurb.score;
+    });
   if (insertBefore) {
     liveResultsList.insertBefore(card, insertBefore);
   } else {
