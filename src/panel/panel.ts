@@ -21,6 +21,12 @@ const bkmrkrLimitIn = document.getElementById("bkmrkr-limit") as HTMLInputElemen
 const kdsrLimitIn   = document.getElementById("kdsr-limit") as HTMLInputElement;
 const bkmrkPagesIn  = document.getElementById("bkmrk-pages") as HTMLInputElement;
 const tagLimitIn    = document.getElementById("tag-page-limit") as HTMLInputElement;
+const bkSeedLimitIn = document.getElementById("bookmark-seed-limit") as HTMLInputElement;
+
+const urlsField     = document.getElementById("urls-field")!;
+const usernameField = document.getElementById("username-field")!;
+const usernameInput = document.getElementById("username") as HTMLInputElement;
+const modeRadios    = Array.from(document.querySelectorAll<HTMLInputElement>('input[name="mode"]'));
 
 const progressLog   = document.getElementById("progress-log")!;
 const liveCount     = document.getElementById("live-count")!;
@@ -39,6 +45,20 @@ const resultsList   = document.getElementById("results-list")!;
 
 // --- State ---
 let port: chrome.runtime.Port | null = null;
+
+// --- Input mode toggle ---
+for (const radio of modeRadios) {
+  radio.addEventListener("change", () => {
+    const isBookmarks = radio.value === "bookmarks" && radio.checked;
+    urlsField.hidden = isBookmarks;
+    usernameField.hidden = !isBookmarks;
+  });
+}
+
+function getSelectedMode(): "urls" | "bookmarks" {
+  for (const r of modeRadios) { if (r.checked) return r.value as "urls" | "bookmarks"; }
+  return "urls";
+}
 let liveResults: ScoredBlurb[] = [];
 let errors: string[] = [];
 let liveResultCount = 0;
@@ -160,17 +180,41 @@ function updateLiveCard(blurb: ScoredBlurb): void {
 configForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const urls = urlsInput.value
-    .split(/[\n,]+/)
-    .map((u) => u.trim().replace(/\/$/, ""))
-    .filter((u) => u.match(/^https?:\/\/archiveofourown\.org\/(works\/\d+|series\/\d+)/));
+  const mode = getSelectedMode();
 
-  if (urls.length === 0) {
-    alert("Please enter at least one valid AO3 work URL.");
-    return;
+  if (mode === "urls") {
+    const urls = urlsInput.value
+      .split(/[\n,]+/)
+      .map((u) => u.trim().replace(/\/$/, ""))
+      .filter((u) => u.match(/^https?:\/\/archiveofourown\.org\/(works\/\d+|series\/\d+)/));
+
+    if (urls.length === 0) {
+      alert("Please enter at least one valid AO3 work URL.");
+      return;
+    }
+
+    const config = buildConfig();
+    resetUI();
+    showProgress();
+    connectPort();
+    send({ type: "start", urls, config });
+  } else {
+    const username = usernameInput.value.trim();
+    if (!username) {
+      alert("Please enter your AO3 username.");
+      return;
+    }
+
+    const config = buildConfig();
+    resetUI();
+    showProgress();
+    connectPort();
+    send({ type: "start-from-bookmarks", username, config });
   }
+});
 
-  const config: RecommendConfig = {
+function buildConfig(): RecommendConfig {
+  return {
     waitLevel:       waitLevelSel.value as RecommendConfig["waitLevel"],
     blacklistTags:   splitTags(blacklistInput.value),
     enforceTags:     splitTags(enforceInput.value),
@@ -179,8 +223,11 @@ configForm.addEventListener("submit", (e) => {
     kdsrLimit:       parseInt(kdsrLimitIn.value)   || 0,
     bkmrkPages:      parseInt(bkmrkPagesIn.value)  || 0,
     tagPageLimit:    parseInt(tagLimitIn.value)     || 0,
+    bookmarkSeedLimit: parseInt(bkSeedLimitIn.value) || 0,
   };
+}
 
+function resetUI(): void {
   liveResults    = [];
   errors         = [];
   liveResultCount = 0;
@@ -190,11 +237,7 @@ configForm.addEventListener("submit", (e) => {
   liveResultsList.innerHTML = "";
   liveResultsSection.hidden = true;
   clearCountdown();
-
-  showProgress();
-  connectPort();
-  send({ type: "start", urls, config });
-});
+}
 
 cancelBtn.addEventListener("click", () => {
   clearCountdown();

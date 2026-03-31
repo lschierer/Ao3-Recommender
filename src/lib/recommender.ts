@@ -1,6 +1,6 @@
 import { RateLimiter } from "./rate-limiter.js";
 import { fetchHtml, ao3Url, ThrottleError } from "./fetcher.js";
-import { parseInputWork, parseBookmarkUsers, parsePage, parseNextHref, parseSeriesWorkUrls } from "./parser.js";
+import { parseInputWork, parseBookmarkUsers, parsePage, parseNextHref, parseSeriesWorkUrls, parseBookmarkWorkUrls } from "./parser.js";
 import type {
   RecommendConfig,
   ParsedBlurb,
@@ -20,11 +20,13 @@ const PRESETS: Record<WaitLevel, {
   bkmrkrLimit: number; kdsrLimit: number; bkmrkPages: number; tagPageLimit: number;
   rateDelayMs: number;
 }> = {
-  "short":     { bkmrkrLimit: 10, kdsrLimit: 5,  bkmrkPages: 1,  tagPageLimit: 3,  rateDelayMs: 1000 },
-  "medium":    { bkmrkrLimit: 20, kdsrLimit: 10, bkmrkPages: 2,  tagPageLimit: 5,  rateDelayMs: 1500 },
-  "long":      { bkmrkrLimit: 35, kdsrLimit: 15, bkmrkPages: 4,  tagPageLimit: 10, rateDelayMs: 3000 },
-  "very long": { bkmrkrLimit: 50, kdsrLimit: 20, bkmrkPages: 10, tagPageLimit: 20, rateDelayMs: 4500 },
+  "short":     { bkmrkrLimit: 10, kdsrLimit: 5,  bkmrkPages: 1,  tagPageLimit: 3,  rateDelayMs: 3000 },
+  "medium":    { bkmrkrLimit: 20, kdsrLimit: 10, bkmrkPages: 2,  tagPageLimit: 5,  rateDelayMs: 4000 },
+  "long":      { bkmrkrLimit: 35, kdsrLimit: 15, bkmrkPages: 4,  tagPageLimit: 10, rateDelayMs: 5000 },
+  "very long": { bkmrkrLimit: 50, kdsrLimit: 20, bkmrkPages: 10, tagPageLimit: 20, rateDelayMs: 6000 },
 };
+
+const DEFAULT_BOOKMARK_SEED_LIMIT = 5;
 
 function resolveConfig(cfg: RecommendConfig) {
   const preset = PRESETS[cfg.waitLevel];
@@ -36,6 +38,7 @@ function resolveConfig(cfg: RecommendConfig) {
     blacklistTags:   cfg.blacklistTags,
     enforceTags:     cfg.enforceTags,
     softEnforcement: cfg.softEnforcement,
+    bookmarkSeedLimit: cfg.bookmarkSeedLimit || DEFAULT_BOOKMARK_SEED_LIMIT,
   };
 }
 
@@ -61,6 +64,25 @@ export function initRunState(urls: string[], config: RecommendConfig): RunState 
   };
 }
 
+export function initRunStateFromBookmarks(username: string, config: RecommendConfig): RunState {
+  const { bookmarkSeedLimit } = resolveConfig(config);
+  // We may need multiple pages to collect enough seeds; estimate ~20 works per page
+  const pagesNeeded = Math.ceil(bookmarkSeedLimit / 20);
+  const queue: QueueItem[] = [{
+    kind: "seed-bookmarks",
+    userUrl: `https://archiveofourown.org/users/${username}/bookmarks`,
+    pagesLeft: pagesNeeded,
+  }];
+  return {
+    status: "running",
+    queue,
+    results: {},
+    inputWorkIds: [],
+    errors: [],
+    config,
+  };
+}
+
 // --- Scoring ---
 
 function scoreAndMerge(
@@ -74,14 +96,14 @@ function scoreAndMerge(
     if (inputIds.has(blurb.id)) continue;
 
     const tags = blurb.tags;
-    if (cfg.blacklistTags.some((t) => tags.includes(t))) continue;
+    if (cfg.blacklistTags.some((t) => tags.includes(t.toLowerCase()))) continue;
     if (!cfg.softEnforcement && cfg.enforceTags.length > 0) {
-      if (!cfg.enforceTags.every((t) => tags.includes(t))) continue;
+      if (!cfg.enforceTags.every((t) => tags.includes(t.toLowerCase()))) continue;
     }
 
     const softEnforced =
       cfg.softEnforcement && cfg.enforceTags.length > 0
-        ? cfg.enforceTags.every((t) => tags.includes(t))
+        ? cfg.enforceTags.every((t) => tags.includes(t.toLowerCase()))
         : false;
 
     const isNew = !(blurb.id in state.results);
@@ -134,7 +156,30 @@ export async function processNextItem(
   try {
     state.queue.shift();
 
-    if (item.kind === "input-series") {
+    if (item.kind === "seed-bookmarks") {
+      callbacks.onProgress(`Fetching bookmarks for user: ${item.userUrl}`);
+      const html = await fetchHtml(item.userUrl, limiter, 3, callbacks.onError, "input-work");
+      if (html) {
+        const seedLimit = resolveConfig(state.config).bookmarkSeedLimit;
+        const workUrls = parseBookmarkWorkUrls(html);
+        const collected = workUrls.length + state.inputWorkIds.length;
+        const remaining = seedLimit - state.inputWorkIds.length;
+
+        const toQueue = workUrls.slice(0, remaining);
+        callbacks.onProgress(`Found ${workUrls.length} bookmarked work(s), queuing ${toQueue.length} as seeds...`);
+        const newItems: QueueItem[] = toQueue.map(url => ({ kind: "input-work" as const, url }));
+
+        // Need more seeds? Paginate.
+        if (collected < seedLimit && item.pagesLeft > 1) {
+          const nextHref = parseNextHref(html);
+          if (nextHref) {
+            newItems.push({ kind: "seed-bookmarks", userUrl: ao3Url(nextHref), pagesLeft: item.pagesLeft - 1 });
+          }
+        }
+        state.queue.unshift(...newItems);
+      }
+
+    } else if (item.kind === "input-series") {
       callbacks.onProgress(`Fetching series: ${item.url}`);
       const html = await fetchHtml(item.url, limiter, 3, callbacks.onError, "input-work");
       if (html) {

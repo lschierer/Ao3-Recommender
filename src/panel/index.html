@@ -15,9 +15,22 @@
 
       <form id="config-form">
         <div class="field">
+          <fieldset id="input-mode">
+            <legend>Seed from</legend>
+            <label><input type="radio" name="mode" value="urls" checked> Work / Series URLs</label>
+            <label><input type="radio" name="mode" value="bookmarks"> My AO3 Bookmarks</label>
+          </fieldset>
+        </div>
+
+        <div class="field" id="urls-field">
           <label for="urls">Work or Series URL(s) <span class="hint">(one per line)</span></label>
           <textarea id="urls" rows="3"
             placeholder="https://archiveofourown.org/works/12345&#10;https://archiveofourown.org/series/67890"></textarea>
+        </div>
+
+        <div class="field" id="username-field" hidden>
+          <label for="username">AO3 Username</label>
+          <input type="text" id="username" placeholder="your_username">
         </div>
 
         <div class="field">
@@ -72,6 +85,12 @@
             <div class="field">
               <label for="tag-page-limit">Tag page limit</label>
               <input type="number" id="tag-page-limit" min="0" placeholder="preset">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="bookmark-seed-limit">Bookmark seed limit</label>
+              <input type="number" id="bookmark-seed-limit" min="1" placeholder="5">
             </div>
           </div>
         </details>

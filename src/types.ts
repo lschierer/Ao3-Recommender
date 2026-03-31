@@ -10,6 +10,7 @@ export interface RecommendConfig {
   kdsrLimit: number;
   bkmrkPages: number;
   tagPageLimit: number;
+  bookmarkSeedLimit: number;  // 0 = use default (5)
 }
 
 export interface InputWork {
@@ -49,6 +50,7 @@ export type QueueItem =
   | { kind: "input-work"; url: string }
   | { kind: "input-work-bookmarks"; workUrl: string }
   | { kind: "input-series"; url: string }
+  | { kind: "seed-bookmarks"; userUrl: string; pagesLeft: number }
   | { kind: "fetch-page"; url: string; source: ParsedBlurb["source"]; pagesLeft: number };
 
 // Full run state persisted in chrome.storage.session after every item
@@ -65,6 +67,7 @@ export interface RunState {
 // Messages over the panel ↔ background port
 export type PanelToBackground =
   | { type: "start"; urls: string[]; config: RecommendConfig }
+  | { type: "start-from-bookmarks"; username: string; config: RecommendConfig }
   | { type: "resume" }
   | { type: "cancel" };
 

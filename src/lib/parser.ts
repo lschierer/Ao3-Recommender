@@ -118,6 +118,23 @@ export function parseNextHref(html: string): string | null {
   return parse(html).querySelector("a[rel='next']")?.getAttribute("href") ?? null;
 }
 
+// Extract work URLs from a user's bookmarks page (same blurb format as series pages)
+export function parseBookmarkWorkUrls(html: string): string[] {
+  const doc = parse(html);
+  const seen = new Set<string>();
+  const urls: string[] = [];
+  for (const a of doc.querySelectorAll("li.bookmark.blurb h4.heading a[href*='/works/']")) {
+    const href = a.getAttribute("href");
+    if (!href) continue;
+    const url = (href.startsWith("http") ? href : AO3_ORIGIN + href).replace(/\?.*$/, "");
+    if (/\/works\/\d+/.test(url) && !seen.has(url)) {
+      seen.add(url);
+      urls.push(url);
+    }
+  }
+  return urls;
+}
+
 // Returns deduplicated work URLs found on a series page (handles pagination via
 // the caller re-queuing with the next-page href from parseNextHref).
 export function parseSeriesWorkUrls(html: string): string[] {

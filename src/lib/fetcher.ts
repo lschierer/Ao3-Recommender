@@ -49,12 +49,17 @@ export async function fetchHtml(
       const waitMs = retryAfterSec > 0 ? retryAfterSec * 1000 : 30_000 * attempt;
 
       if (waitMs > MAX_WAIT_MS) {
-        // AO3 wants us to wait longer than the service worker can survive —
-        // surface this as a hard abort rather than hanging silently.
         throw new ThrottleError(retryAfterSec > 0 ? retryAfterSec : 30 * attempt);
       }
 
-      onError?.(`HTTP ${resp.status} from AO3 (attempt ${attempt}), retrying in ${waitMs / 1000}s...`);
+      // Permanently slow down after a 429 so we don't immediately trigger another
+      if (resp.status === 429) {
+        limiter.backoff(1.5);
+        onError?.(`HTTP 429 — slowing down (base delay now ${limiter.currentDelayMs}ms), retrying in ${Math.round(waitMs / 1000)}s...`);
+      } else {
+        onError?.(`HTTP ${resp.status} from AO3 (attempt ${attempt}), retrying in ${Math.round(waitMs / 1000)}s...`);
+      }
+
       await sleep(waitMs);
       continue;
     }

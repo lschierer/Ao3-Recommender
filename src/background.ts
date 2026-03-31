@@ -1,4 +1,4 @@
-import { initRunState, processNextItem, buildOutput, getRateDelayMs } from "./lib/recommender.js";
+import { initRunState, initRunStateFromBookmarks, processNextItem, buildOutput, getRateDelayMs } from "./lib/recommender.js";
 import { RateLimiter } from "./lib/rate-limiter.js";
 import type { PanelToBackground, BackgroundToPanel, SessionData, RunState } from "./types.js";
 
@@ -88,6 +88,15 @@ chrome.runtime.onConnect.addListener((port) => {
       loopToken++;
       const token = loopToken;
       const state = initRunState(msg.urls, msg.config);
+      await chrome.storage.session.set({ runState: state });
+      runLoop(state, token);
+      return;
+    }
+
+    if (msg.type === "start-from-bookmarks") {
+      loopToken++;
+      const token = loopToken;
+      const state = initRunStateFromBookmarks(msg.username, msg.config);
       await chrome.storage.session.set({ runState: state });
       runLoop(state, token);
       return;
